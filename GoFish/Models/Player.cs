@@ -28,7 +28,10 @@ namespace GoFish.Models
       Value = value;
       _instances.Add(this);
       CardId = _instances.Count;
-
+    }
+    public string Name()
+    {
+      return "";
     }
   }
 
