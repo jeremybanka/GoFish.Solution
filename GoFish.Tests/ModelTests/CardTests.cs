@@ -20,7 +20,7 @@ namespace GoFish.Tests
 
       //Act aka Actual/Returned
       Card c = new("Clubs", 13);
-      string result = c.Name();
+      string result = c.Name;
 
       //Assert aka Expected vs. Actual
       Assert.AreEqual(expectedName, result);
