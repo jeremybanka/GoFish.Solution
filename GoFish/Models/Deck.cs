@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace GoFish.Models
@@ -11,7 +12,7 @@ namespace GoFish.Models
       "Diamonds",
       "Hearts"
     };
-    public List<Card> Cards { get; }
+    public List<Card> Cards { get; set; }
     public Deck()
     {
       Cards = new() { };
@@ -24,6 +25,19 @@ namespace GoFish.Models
       }
     }
 
+    public void Shuffle()
+    {
+      List<Card> unshuffledCards = new(Cards);
+      List<Card> shuffledCards = new();
+      Random random = new();
+      while (shuffledCards.Count <= 52)
+      {
+        Card anyCard = unshuffledCards[random.Next(unshuffledCards.Count)];
+        shuffledCards.Add(anyCard);
+        unshuffledCards.Remove(anyCard);
+      }
+      Cards = shuffledCards;
+    }
 
   }
 }
